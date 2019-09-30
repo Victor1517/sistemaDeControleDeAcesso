@@ -1,0 +1,74 @@
+#{extends 'main.html' /}
+#{set title:'Listagem' /}
+
+<meta charset='utf-8'>
+
+
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <form id="form" data-parsley-validate="" novalidate="" action="@{NaoFiliados.buscar()}" method="post">
+                                        <div class="form-group row">
+                                            <label for="inputEmail2" class="col-3 col-lg-2 col-form-label text-right">Buscar pelo nome</label>
+                                            <div class="col-9 col-lg-10">
+                                                <input id="inputEmail2" type="text" name="parteNome"  data-parsley-type="email" placeholder="" class="form-control">
+                                          
+                                        </div>
+                                        </div>
+                                            <div class="col-sm-6 pl-0">
+                                                <p class="text-right">
+                                                    <button type="submit" class="btn btn-space btn-primary">Buscar</button>
+                                                    
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                    
+<center>
+
+                                <div class="card">
+                                    <h5 class="card-header"><center>TABELA DE NÃO FILIADOS</center></h5>
+                                    <div class="card-body p-0">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead class="bg-light">
+                                                    <tr class="border-0">
+                                                        <th class="border-0">ID</th>
+                                                        
+                                                        <th class="border-0">Nome</th>
+                                                        <th class="border-0">CPF</th>
+                                                        <th class="border-0">Cidade</th>
+                                                        <th class="border-0">Opção 1</th>
+                                                        <th class="border-0">Opção 2</th>
+                                                    </tr>
+                                                </thead>
+                                                #{list items:naoFiliados, as:'naoFiliado'}
+                                                <tbody>
+                                                    <tr>
+                                                        <td>${naoFiliado.id}</td>
+                                                        
+                                                        <td>${naoFiliado.nome} </td>
+                                                        <td>${naoFiliado.cpf} </td>
+                                                        <td>${naoFiliado.cidade} </td>
+                                                        
+                                                        <td><a href="@{NaoFiliados.editar(naoFiliado.id)}">Editar</a></td>
+                                                        <td><a href="@{NaoFiliados.deletar(naoFiliado.id)}">Excluir</a></td>
+                                                    </tr>
+                                                    #{/list}
+                                                    #{else}
+                                                    <td>-</td>
+                                                       
+                                                        <td>Vazio</td>
+                                                        <td>Vazio</td>
+                                                        <td>Vazio</td>
+                                                        <td>Não disponivel</td>
+                                                        <td>Não disponivel</td>
+                                                    #{/else}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </center>

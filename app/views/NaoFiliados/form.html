@@ -1,0 +1,64 @@
+
+#{extends 'main.html' /}
+#{set title:'Formulário de Cadastro' /}
+<meta charset="utf-8">
+
+                            <div class="card">
+                                <center><h5 class="card-header">FORMULÁRIO DE CADASTRO DE NÃO FILIADO</h5> </center>
+                                <div class="card-body">
+                                    <form id="form" data-parsley-validate="" novalidate="" action="@{NaoFiliados.salvar()}" method="post">
+                                        <div class="form-group row">
+                                            <label for="inputEmail2" class="col-3 col-lg-2 col-form-label text-right">Nome</label>
+                                            <div class="col-9 col-lg-10">
+                                                <input id="inputEmail2" type="text" name="naoFiliado.nome" value="${naoFiliado?.nome}" data-parsley-type="email" placeholder="" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputPassword2" class="col-3 col-lg-2 col-form-label text-right">CPF</label>
+                                            <div class="col-9 col-lg-10">
+                                                <input id="inputPassword2" type="text" name="naoFiliado.cpf" value="${naoFiliado?.cpf}" placeholder="" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputPassword2" class="col-3 col-lg-2 col-form-label text-right">Cidade</label>
+                                            <div class="col-9 col-lg-10">
+                                                <input id="inputPassword2" type="text" name="naoFiliado.cidade" value="${naoFiliado?.cidade}" placeholder="" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputPassword2" class="col-3 col-lg-2 col-form-label text-right"></label>
+                                            <div class="col-9 col-lg-10">
+                                                <input id="inputPassword2" type="hidden" name="naoFiliado.id" value="${naoFiliado?.id}"" class="form-control">
+                                            </div>
+                                        </div>
+                                         <center>
+			#{if flash.success}
+    		<div class="alert alert-success" role="alert">
+    			${flash.success}    		
+    		</div>    		
+    	#{/if}
+    	
+    	#{if flash.error}
+    		<div style="color:red;">
+    			${flash.error}    		
+    		</div>    		
+    	#{/if}
+    </center>
+                                        <div class="row pt-2 pt-sm-5 mt-1">
+                                            <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
+                                                <label class="be-checkbox custom-control custom-checkbox">
+                                                    
+                                                </label>
+                                            </div>
+                                            <div class="col-sm-6 pl-0">
+                                                <p class="text-right">
+                                                    <button type="submit" class="btn btn-space btn-primary">Cadastrar</button>
+                                                    
+                                                </p>
+                                                
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>

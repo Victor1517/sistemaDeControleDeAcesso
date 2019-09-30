@@ -1,0 +1,19 @@
+#{extends 'main.html' /}
+#{set title:'Listagem' /}
+
+<h1>Listagem de Usu·rios</h1>
+<h1>Usu√°rio Cadastro</h1>
+<ul>
+#{list items:usuarios, as:'usuario'}
+	<li>${usuario.user}	|  <a href="@{Usuarios.editar(usuario.id)}">Editar</a>
+	</li>
+#{/list}
+#{else}
+N„o h· cadastro
+#{/else}
+</ul>
+
+<a href="@{Usuarios.login}"><h4>Ir para a p·gina de login</h4></a>
+
+
+

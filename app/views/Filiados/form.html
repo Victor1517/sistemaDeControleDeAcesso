@@ -1,0 +1,91 @@
+#{extends 'main.html' /}
+#{set title:'Formulário de Cadastro' /}
+<meta charset="utf-8">
+
+                            <div class="card">
+                                <center><h5 class="card-header">FORMULÁRIO DE CADASTRO DE FILIADO</h5></center>
+                                
+                                <div class="card-body">
+                                    <form id="form" data-parsley-validate="" novalidate="" action="@{Filiados.salvar()}" method="post">
+                                        <div class="form-group row">
+                                            <label for="inputEmail2" class="col-3 col-lg-2 col-form-label text-right">Nome</label>
+                                            <div class="col-9 col-lg-10">
+                                                <input id="inputEmail2" type="text" name="filiado.nome" value="${filiado?.nome}" data-parsley-type="email" placeholder="" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputPassword2" class="col-3 col-lg-2 col-form-label text-right">Matricula</label>
+                                            <div class="col-9 col-lg-10">
+                                                <input id="inputPassword2" type="text" name="filiado.matricula" value="${filiado?.matricula}" placeholder="" class="form-control">
+                                            </div>
+                                        </div>
+                                    
+                                        
+                                       
+        <div class="form-group row">
+        <label for="inputPassword1" class="col-3 col-lg-2  text-right">Campus</label>
+        <select name="filiado.campi.id"">
+		<option></option>
+		#{list items:campis, as: 'campi'}
+		<option value="${campi.id}" #{if filiado?.campi?.id == campi.id} selected #{/if} >${campi.nome}</option>
+		#{/list}
+	</select>
+                      
+                                                      
+                                        </div>
+                                        
+                                            <div class="form-group row">
+                                            <label for="inputPassword2" class="col-3 col-lg-2 col-form-label text-right"></label>
+                                            <div class="col-9 col-lg-10">
+                                                <input id="inputPassword2" type="hidden" name="filiado.id" value="${filiado?.id}"" class="form-control">
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+               <center>        
+               
+               
+              
+               
+                                
+			#{if flash.success}
+			<div class="alert alert-success" role="alert">
+                                               
+                                     
+    		
+    			${flash.success}    		
+    		</div>    		
+    	#{/if}
+    	
+    	#{if flash.error}
+    	
+    			${flash.error}    		
+    		</div>    		
+    	#{/if}
+    </center>
+                                        <div class="row pt-2 pt-sm-5 mt-1">
+                                            <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
+                                                <label class="be-checkbox custom-control custom-checkbox">
+                                                    
+                                                </label>
+                                            </div>
+                                            <div class="col-sm-6 pl-0">
+                                                <p class="text-right">
+                                                    <button type="submit" class="btn btn-space btn-primary">Cadastrar</button>
+                                                    
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                         
+
+
+
